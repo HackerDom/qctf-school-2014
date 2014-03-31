@@ -1,0 +1,3 @@
+original: ructf_is*so-cool
+key: 93
+crypted: KM'7#gZ7kFXoS\VY
