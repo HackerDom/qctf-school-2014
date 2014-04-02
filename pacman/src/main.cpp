@@ -1,7 +1,8 @@
 #include <malloc.h>
 #include <stdio.h>
 #include <string.h>
-#include "md2.h"
+#include <Windows.h>
+#include <WinCrypt.h>
 
 const char verse1[] = "Между строчек где-то в коде\n"
 					  "Притаился хитрый баг,\n"
@@ -68,17 +69,24 @@ int main()
 	WORD verse1_len = strlen(verse1);
 	WORD verse2_len = strlen(verse2);
 
-	MD2_CTX context;
-	md2_init(&context);
+	HCRYPTPROV hProv;
+	HCRYPTHASH hHash;
+
+	if (!CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT))
+		return 1;
+	if (!CryptCreateHash(hProv, CALG_MD4, 0, 0, &hHash)) {
+		CryptReleaseContext(hProv, 0);
+		return 2;
+	}
 
 	printf("This program will calculate the flag for you, but you, probably, may have not enough memory.\nAnyway, it will take some time. Relax...\n");
 
 	BYTE *data;
 	WORD verse1_pos = 0, verse2_pos = 0;
-	for (DWORD i = 1; i <= 5000000; i++) {
-		data = (BYTE*)malloc(sizeof(BYTE)*2048);
+	for (DWORD i = 1; i <= 10000000; i++) {
+		data = (BYTE*)malloc(2048);
 
-		for (WORD k = 0; k < 2050; k++) {
+		for (WORD k = 0; k < 2048; k++) {
 			data[k] = verse1[verse1_pos++] ^ verse2[verse2_pos++];
 
 			if (verse1_pos == verse1_len)
@@ -87,23 +95,43 @@ int main()
 				verse2_pos = 0;
 		}
 
-		md2_update(&context, data, 2050);
+		if (!CryptHashData(hHash, data, 2048, 0)) {
+			free(data);
 
-		// if (i % 10000 == 0)
+			CryptDestroyHash(hHash);
+			CryptReleaseContext(hProv, 0);
+			return 3;
+		}
+
+		// if (i % 100000 == 0)
 		// 	printf("%d\n", i);
 	}
 
 	free(data);
 
-	md2_update(&context, (BYTE*)verse3, strlen(verse3));
+	if (!CryptHashData(hHash, (BYTE*)verse3, strlen(verse3), 0)) {
+		CryptDestroyHash(hHash);
+		CryptReleaseContext(hProv, 0);
+		return 3;
+	}
 
-	data = (BYTE*)malloc(16);
-	md2_final(&context, data);
+	DWORD hash_len, data_len = sizeof(DWORD);
+	if (!CryptGetHashParam(hHash, HP_HASHSIZE, (BYTE*)&hash_len, &data_len, 0)) {
+		CryptDestroyHash(hHash);
+		CryptReleaseContext(hProv, 0);
+		return 4;
+	}
 
-	printf("\nCongratulation!! The key is: {SQCTF:");
-	for (DWORD i = 0; i < 16; i++)
+	data = (BYTE*)malloc(hash_len);
+	if (!CryptGetHashParam(hHash, HP_HASHVAL, data, &hash_len, 0)) {
+		CryptDestroyHash(hHash);
+		CryptReleaseContext(hProv, 0);
+		return 4;
+	}
+
+	printf("\nCongratulation!! The key is: QCTF_");
+	for (DWORD i = 0; i < hash_len; i++)
 		printf("%02x", data[i]);
-	putchar('}');
 
 	free(data);
 	return 0;
