@@ -1,5 +1,5 @@
 function help() {
-    console.log("There are few functions whitch allowed to you. Catch 'em all!");
+    console.log("There are few functions whitch allowed to you. Gotta Catch 'Em All!");
 }
 
 function pokemon() {
