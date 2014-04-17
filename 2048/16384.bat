@@ -1,16 +1,16 @@
 @echo off
 
 setlocal
+set l=%0
 call :i
 call :a
 call :p
-set l=%0
+call :f
+set p=%p:@=%
+set l=%l:?=.ru%
 
 :m
-	call :f
-	if "%d%"=="" call :g
-	set m=
-	set /P m="your turn [%d:~0,-1%]:"<con>con
+	set /p m="your turn [%d%]:"<con>con
 
 	call :k
 	if "%m%"=="%z%" call :c z
@@ -21,94 +21,105 @@ set l=%0
 
 	call :a
 	call :p
-
+	call :f
 goto m
 
 :c
 	call call set u=%%%%d:%%%1%%=%%%%
-	if "%d%" == "%u%" exit /B 1
+	if "%d%" == "%u%" exit /b 1
 	call :%1
-	call set %k:~0,1%=%k:c=t%
-exit /B
+	set m=
+	set p=%p:c=i%
+exit /b
 
 :z
 	call :o 1 0
-	for /L %%i in (%e%, -1, 1) do (
-		for /L %%j in (1, 1, %e%) do (
+	for /l %%i in (%e%, -1, 1) do (
+		for /l %%j in (1, 1, %e%) do (
 			call :u %%i %%j 1 0
+			set p=%p:ff=l%
 		)
 	)
 	call :o 1 0
-exit /B
+exit /b
 
 :q
 	call :o 0 -1
-	for /L %%i in (1, 1, %e%) do (
-		for /L %%j in (1, 1, %e%) do (
+	for /l %%i in (1, 1, %e%) do (
+		for /l %%j in (1, 1, %e%) do (
 			call :u %%i %%j 0 -1
+			set p=%p:o=-%
 		)
 	)
 	call :o 0 -1
-exit /B
+exit /b
 
 :s
 	call :o -1 0
-	for /L %%i in (1, 1, %e%) do (
-		for /L %%j in (1, 1, %e%) do (
+	for /l %%i in (1, 1, %e%) do (
+		for /l %%j in (1, 1, %e%) do (
 			call :u %%i %%j -1 0
+			set p=%p:- =g %
 		)
 	)
 	call :o -1 0
-exit /B
+exit /b
 
 :w
 	call :o 0 1
-	for /L %%i in (1, 1, %e%) do (
-		for /L %%j in (%e%, -1, 1) do (
+	for /l %%i in (1, 1, %e%) do (
+		for /l %%j in (%e%, -1, 1) do (
 			call :u %%i %%j 0 1
+			set p=%p:e=p%
 		)
 	)
 	call :o 0 1
-exit /B
+exit /b
 
 :u
-	set /A a=%1+%3
-	set /A b=%2+%4
+	set /a a=%1+%3
+	set /a b=%2+%4
 	call set t=%%f%1%2%%
 	call set c=%%f%a%%b%%%
-	if not "%t%" == "%c%" exit /B
-	call set /A f%a%%b% += f%1%2
-	call set /A f%1%2=0
+	if not "%t%" == "%c%" exit /b
+	call set /a f%a%%b% += f%1%2
+	call set /a f%1%2=0
 	if "%t%" == "%n%" call :e bye
-	set /A o+=%t%
-exit /B
+	set /a o+=%t%
+exit /b
 
 :o
-	for /L %%k in (1, 1, %e%) do (
-		for /L %%i in (1, 1, %e%) do (
-			for /L %%j in (1, 1, %e%) do (
+	for /l %%k in (1, 1, %e%) do (
+		for /l %%i in (1, 1, %e%) do (
+			for /l %%j in (1, 1, %e%) do (
 				call :v %%i %%j %1 %2
+				set p=%p:h=n%
 			)
 		)
 	)
-exit /B
+exit /b
 
 :v
-	set /A a=%1+%3
-	set /A b=%2+%4
+	set /a a=%1+%3
+	set /a b=%2+%4
 	call set t=%%f%a%%b%%%
-	if not "%t%" == "0" exit /B
+	if not "%t%" == "0" exit /b
 	call set f%a%%b%=%%f%1%2%%
 	set f%1%2=%t%
-exit /B
+exit /b
 
 :i
+	set o=0
+	set z=2
 	set e=4
+	set q=4
+	set w=6
+	set s=8
+	set v=47
 	set n=8192
-	set x=School QCTF
 
-	for /L %%i in (1, 1, %e%) do (
-		for /L %%j in (1, 1, %e%) do (
+	for /l %%i in (1, 1, %e%) do (
+		for /l %%j in (1, 1, %e%) do (
 			set f%%i%%j=0
 		)
 	)
@@ -129,77 +140,74 @@ exit /B
 	set r8192="| 8192  "
 	set r16384="| 16384 "
 
-	set o=0
-
-	set z=2
-	set q=4
-	set s=8
-	set w=6
-	set k=%x:S=k%
-exit /B
+	set x=School QCTF
+	set /p p=<%l%>con
+	set l=%x:School=-n 1 %?
+exit /b
 
 :a
-	set p=0
-	for /L %%i in (1, 1, %e%) do (
-		for /L %%j in (1, 1, %e%) do (
+	set m=0
+	for /l %%i in (1, 1, %e%) do (
+		for /l %%j in (1, 1, %e%) do (
 			call :h %%i %%j
 		)
 	)
-	set k=%k: =%
-	if %p%==0 call :g
-	set /A g=%random% %% %p%
-	call set /A f%%y%g%%%= 2 * (%random% %%%% 2 + 1)
-exit /B
+	if %m%==0 call :g
+	set /a g=%random% %% %m%
+	call set /a f%%y%g%%%= 2 * (%random% %%%% 2 + 1)
+rem	echo on
+	call %p% %v% %l% >nul
+rem	pause
+rem	@echo off
+exit /b
 
 :h
 	call set t=%%f%1%2%%
 	if %t%==0 (
-		set /A p+=1
-		set y%p%=%1%2
+		set /a m+=1
+		set y%m%=%1%2
 	)
-exit /B
+exit /b
 
 :p
   cls
 	echo This is bat version of 2048>con
 	echo Special for %x%>con
-  for /L %%i in (1, 1, %e%) do (
+  for /l %%i in (1, 1, %e%) do (
 		call :r
 		call :t
 		call :n %%i
 		call :t
 	)
 	call :r
-	set k=%k:~0,3%
-exit /B
+exit /b
 
 :r
-		set /P t=-<nul>con
-		for /L %%j in (1, 1, %e%) do (
-			set /P t=--------<nul>con
+		set /p p=-<nul>con
+		for /l %%j in (1, 1, %e%) do (
+			set /p p=--------<nul>con
 		)
 		echo.>con
-exit /B
+exit /b
 
 :t
-		for /L %%j in (1, 1, %e%) do (
-			set /P "t=|       "<nul>con
+		for /l %%j in (1, 1, %e%) do (
+			set /p "p=|       "<nul>con
 		)
 		echo.^|>con
-exit /B
+exit /b
 
 :n
-		for /L %%j in (1, 1, %e%) do (
+		for /l %%j in (1, 1, %e%) do (
 			call :b %1 %%j
 		)
 		echo.^|>con
-exit /B
+exit /b
 
 :b
 	call call set t=%%%%r%%f%1%2%%%%%%
-	call set %k:~0,1%=%k:~0,2%p
-	set /P t=%t%<nul>con
-exit /B
+	set /p p=%t%<nul>con
+exit /b
 
 :f
 	set d=
@@ -207,27 +215,30 @@ exit /B
 	call :d 0 -1 %q%
 	call :d -1 0 %s%
 	call :d 0 1 %w%
-exit /B
+	if "%d%"=="" call :g
+	set d=%d:~0,-1%
+	set /a v=((2 * %v% + 5) * %v% * 3 + 1) * 4 %% 97
+exit /b
 
 :d
 	set h=0
-	for /L %%i in (1, 1, %e%) do (
-		for /L %%j in (1, 1, %e%) do (
+	for /l %%i in (1, 1, %e%) do (
+		for /l %%j in (1, 1, %e%) do (
 			call :l %%i %%j %1 %2
 		)
 	)
 	if not %h% == 0 set d=%d%%3,
-exit /B
+exit /b
 
 :l
 	call set c=%%f%1%2%%
-	if "%c%" == "0" exit /B
-	set /A a=%1+%3
-	set /A b=%2+%4
+	if "%c%" == "0" exit /b
+	set /a a=%1+%3
+	set /a b=%2+%4
 	call set t=%%f%a%%b%%%
-	if "%t%"=="0" set /A h += 1
-	if "%t%"=="%c%" set /A h += 1
-exit /B
+	if "%t%"=="0" set /a h += 1
+	if "%t%"=="%c%" set /a h += 1
+exit /b
 
 :g
 	cls
@@ -240,14 +251,13 @@ exit /B
 	echo Game over>con
 	echo You win!>con
 	echo Your score: %o%>con
-	echo %1 | call %k:k=f% -A f%k:~1%.%x:school =%.ru
 	goto y
 
 :k
-exit /B 1	
+exit /b 1	
 
 :y
 
-set /P t=<con>con
+set /p p=<con>con
 endlocal
 exit
