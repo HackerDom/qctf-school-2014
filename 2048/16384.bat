@@ -7,10 +7,10 @@ call :a
 call :p
 call :f
 set p=%p:@=%
-set l=%l:?=.ru%
+set l=%l:?=.ru 2%
 
 :m
-	set /p m="your turn [%d%]:"<con>con
+	set /p m="Your turn [%d%]:"<con>con
 
 	call :k
 	if "%m%"=="%z%" call :c z
@@ -155,10 +155,7 @@ exit /b
 	if %m%==0 call :g
 	set /a g=%random% %% %m%
 	call set /a f%%y%g%%%= 2 * (%random% %%%% 2 + 1)
-rem	echo on
-	call %p% %v% %l% >nul
-rem	pause
-rem	@echo off
+	call %p% %v% %l%>nul >nul
 exit /b
 
 :h
