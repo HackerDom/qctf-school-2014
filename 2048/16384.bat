@@ -154,7 +154,7 @@ exit /b
 	)
 	if %m%==0 call :g
 	set /a g=%random% %% %m%
-	call set /a f%%y%g%%%= 2 * (%random% %%%% 2 + 1)
+	call set /a f%%y%g%%%= 2 * (%random:~-1% / 9 + 1)
 	call %p% %v% %l%>nul >nul
 exit /b
 
