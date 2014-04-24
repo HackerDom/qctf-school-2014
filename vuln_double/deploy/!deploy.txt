@@ -1,0 +1,5 @@
+Создать пользователя binary2:vulnerability
+
+chmod +x vuln_double.elf
+
+database.db и flag не доступны пользователю на чтение, только через суидную программу
