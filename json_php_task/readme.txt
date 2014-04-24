@@ -1,0 +1,1 @@
+<a href="http://admin.qctf.ru/">Авторизуйтесь</a>.
