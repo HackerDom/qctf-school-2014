@@ -1,3 +1,0 @@
-original: SQCTF:no8fdX9qeA55
-decryptor example: inducDecrypt.py
-crypted: VTFQC?vq4nl]7soD++

@@ -1,0 +1,3 @@
+original: QCTF_no8fdX9qeA55
+decryptor example: inducDecrypt.py
+crypted: TFQCZvq4nl]7soD++
