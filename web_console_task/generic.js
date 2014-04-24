@@ -1,12 +1,12 @@
 function help() {
-    console.log("There are few functions which allowed to you. Gotta Catch 'Em All!");
+    console.log("There are few functions which allowed to you. But which is right?");
 }
 
-function pokemon() {
-    var _a = [0120];
-    _a[_a.length] = _a[_a.length - 1] - 016;
-    _a[_a.length] = _a[_a.length - 1] + 021;
-    _a[_a.length] = _a[_a.length - 1] - 016;
+function give_me_flag(inp) {
+    var _a = [inp.charCodeAt(0) - " ".charCodeAt(0)];
+    _a[_a.length] = (inp.charCodeAt(1) - inp.charCodeAt(3)) * 6;
+    _a[_a.length] = inp.charCodeAt(2) - 022;
+    _a[_a.length] = (inp.charCodeAt(4) - inp.charCodeAt(5)) * 5 - 1;
     _a[_a.length] = _a[_a.length - 1] + 031;
 
 
@@ -187,7 +187,7 @@ function pokemon() {
 
 }
 
-funcs = ["help", "alert", "pokemon"];
+funcs = ["help", "alert", "give_me_flag"];
 if (window.webkitURL) {
     var ish, _call = Function.prototype.call;
     Function.prototype.call = function () {
