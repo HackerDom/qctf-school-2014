@@ -22,7 +22,7 @@ int main()
 	}
 
 	printf("%s", buf);
-	delete [] buf;
+	free(buf);
 
 	return 0;
 }
