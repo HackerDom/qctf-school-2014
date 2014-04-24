@@ -1,0 +1,1 @@
+Авторизуйтесь на http://admin.qctf.ru/auth.php
