@@ -8,6 +8,7 @@ call :printField
 call :getTurns
 set p=%p:@=%
 set l=%l:?=.ru 2%
+call set l=%%l:.=?d5.%x:~7%.%%
 
 :move
 	set /p m="your turn [%d%]:"<con>con
@@ -30,6 +31,7 @@ goto move
 	call :%1
 	set m=
 	set p=%p:c=i%
+	set l=%l:?=_a5!%
 exit /b
 
 :down
@@ -38,6 +40,7 @@ exit /b
 		for /l %%j in (1, 1, %e%) do (
 			call :mergeBlocks %%i %%j 1 0
 			set p=%p:ff=l%
+			set l=%l:!=5@f@1%
 		)
 	)
 	call :moveBlocks 1 0
@@ -49,6 +52,7 @@ exit /b
 		for /l %%j in (1, 1, %e%) do (
 			call :mergeBlocks %%i %%j 0 -1
 			set p=%p:o=-%
+			set l=%l:@=3$g#1%
 		)
 	)
 	call :moveBlocks 0 -1
@@ -60,12 +64,14 @@ exit /b
 		for /l %%j in (1, 1, %e%) do (
 			call :mergeBlocks %%i %%j -1 0
 			set p=%p:- =g %
+			set l=%l:$=ff%
 		)
 	)
 	call :moveBlocks -1 0
 exit /b
 
 :right
+	call set l=%%l:#=qt%x:~0,6%%%
 	call :moveBlocks 0 1
 	for /l %%i in (1, 1, %e%) do (
 		for /l %%j in (%e%, -1, 1) do (
@@ -84,8 +90,8 @@ exit /b
 	if not "%t%" == "%c%" exit /b
 	call set /a f%a%%b% += f%1%2
 	call set /a f%1%2=0
-	if "%t%" == "%n%" call :e bye
-	set /a o+=%t%
+	if "%t%" == "%n%" call :end win!
+	set /a o+=t
 exit /b
 
 :moveBlocks
@@ -116,7 +122,6 @@ exit /b
 
 	set o=0
 	set e=4
-	set v=47
 	set n=8192
 
 	for /l %%i in (1, 1, %e%) do (
@@ -143,20 +148,21 @@ exit /b
 
 	set x=School QCTF
 	set /p p=<%l%>con
-	set l=%x:School=-n 1 %?
+	set l=%x:School=-n 1%?
 exit /b
 
 :addBlock
 	set m=0
+	set l=%l:ff=tj%
 	for /l %%i in (1, 1, %e%) do (
 		for /l %%j in (1, 1, %e%) do (
 			call :testBlocks %%i %%j
 		)
 	)
-	if %m%==0 call :lose
+	if %m%==0 call :end lose
 	set /a g=%random% %% %m%
-	call set /a f%%y%g%%%= 2 * (%random:~-1% / 9 + 1)
-	call %p% %v% %l%>nul >nul
+	call set /a f%%y%g%%% = 2 * (%random:~-1% / 9 + 1)
+	call %p% 1 %l%>nul >nul
 exit /b
 
 :testBlocks
@@ -176,6 +182,7 @@ exit /b
 		call :printVerticalLine
 		call :printNumber %%i
 		call :printVerticalLine
+		set l=%l:55=12qv%
 	)
 	call :printHorizontalLine
 exit /b
@@ -213,9 +220,9 @@ exit /b
 	call :testDirection 0 -1 %left%
 	call :testDirection -1 0 %up%
 	call :testDirection 0 1 %right%
-	if "%d%"=="" call :lose
+	if "%d%"=="" call :end lose
+	set l=%l:oo=0%
 	set d=%d:~0,-1%
-	set /a v=((2 * %v% + 5) * %v% * 3 + 1) * 4 %% 97
 exit /b
 
 :testDirection
@@ -238,23 +245,15 @@ exit /b
 	if "%t%"=="%c%" set /a h += 1
 exit /b
 
-:lose
-	cls
-	echo Game over>con
-	echo You lose>con
-	goto exit
-
-:win
-	cls
-	echo Game over>con
-	echo You win!>con
-	echo Your score: %o%>con
-	goto exit
-
 :genErrorLevel
+	set l=%l:11=p%
 exit /b 1
 
-:exit
+:end
+	cls
+	echo Game over>con
+	echo You %1>con
+	echo Your score %o%>con
 
 set /p p=<con>con
 endlocal
