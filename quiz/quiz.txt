@@ -94,29 +94,5 @@ q: q: какая технология приходит на смену BIOS?
 a: UEFI
 
 24
-q: 
-a: 
-
-25
-q: 
-a: 
-
-26
-q: 
-a: 
-
-27
-q: 
-a: 
-
-28
 q: Кто изображён на фото http://inf-sub.moy.su/_pu/0/97870265.jpg ?
 a: Charles Antony Richard Hoare
- 
-29
-q: 
-a: 
-
-30
-q: 
-a: 
