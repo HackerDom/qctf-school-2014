@@ -1,14 +1,20 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-from flask import Flask
+from flask import Flask, redirect
 from hashlib import md5
 from flask import request
 
 
 app = Flask(__name__)
 
+
+@app.route("/")
+def to_start():
+    return redirect("/start")
+
+
 @app.route("/<datastr>")
-def hello(datastr):
+def getdata(datastr):
     arr = [chr(x+1) for x in list(datastr.encode('utf-8'))]
     gethash = md5()
     gethash.update("".join(arr).replace(":", "9").encode('utf-8'))
