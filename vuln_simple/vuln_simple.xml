@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <quest series="hardware" id="hardware:300" proto="xmlquest-2.0">
-    <name>База данных</name>
+    <name>SOS</name>
     <task type="html" lang="en"><div>У нас есть ssh-доступ к серверу vuln.qctf.ru.<br />Логин: binary1<br />Пароль: vulnerability<br />Кажется, в файле flag находится какая-то секретная информация.<br />Ответ начинается с "QCTF_".</div></task>
     <task type="html" lang="ru"><div>У нас есть ssh-доступ к серверу vuln.qctf.ru.<br />Логин: binary1<br />Пароль: vulnerability<br />Кажется, в файле flag находится какая-то секретная информация.<br />Ответ начинается с "QCTF_".</div></task>
     <checker strict="yes">
