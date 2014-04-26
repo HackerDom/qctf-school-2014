@@ -23,8 +23,8 @@ def getdata(datastr):
     if "Python" in request.headers.get('User-Agent'):
         return "This is not for your Python ;)"
 
-    if not datastr == "57f0eb9a206a640c97ce739791c75ff3":
-        return "<a href=" + "".join(hash) + " class=\"design\">Ссылка</a>"
+    if not datastr == "b1aafd69b16f47e87eb700d9cc177c0f":
+        return "<a href=" + "".join(hash) + " class=\"design\">Нажми сюда</a>"
     else:
         return "Your flag is: QCTF_2vlSKFfdYdXWojf"
 
