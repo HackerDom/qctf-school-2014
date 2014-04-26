@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <quest series="D" id="D:100" proto="xmlquest-2.0">
-    <name>Шифрование индюком</name>
+    <name>Шифр индюка</name>
     <task type="html" lang="en"><div>Нами было перехвачено зашифрованное сообщение: "TFQCZvq4nl]7soD++" (без кавычек).<br />Также удалось найти <a href="static/induc.exe">программу</a>, при помощи которой был зашифрован текст. Найдите, что было зашифровано.<br />Ответ начинается с "QCTF_".</div></task>
     <task type="html" lang="ru"><div>Нами было перехвачено зашифрованное сообщение: "TFQCZvq4nl]7soD++" (без кавычек).<br />Также удалось найти <a href="static/induc.exe">программу</a>, при помощи которой был зашифрован текст. Найдите, что было зашифровано.<br />Ответ начинается с "QCTF_".</div></task>
     <checker strict="yes">
