@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<quest series="hardware" id="hardware:300" proto="xmlquest-2.0">
+    <name>Ping me</name>
+    <task type="html" lang="en"><div>Найдите на <a href="http://hungary.qctf.ru">сайте</a> флаг.<br />Ответ начинается с "QCTF_".</div></task>
+    <task type="html" lang="ru"><div>Найдите на <a href="http://hungary.qctf.ru">сайте</a> флаг.<br />Ответ начинается с "QCTF_".</div></task>
+    <checker strict="yes">
+        <solution case="insensitive">QCTF_RaBUJaKuSEpaSiLEvUvecEPYfemUkUpA</solution>
+    </checker>
+</quest>
