@@ -1,7 +1,6 @@
 <?php
 define("PASS", "xxx");
 define("FLAG", "xxx");
-header('X-HTTP-Source: http://'.$_SERVER['SERVER_NAME'].'/auth.phps');
 
 if (!isset($_POST['type']) || !isset($_POST['data'])) exit('Wrong post!');
 

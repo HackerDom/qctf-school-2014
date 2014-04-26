@@ -6,19 +6,14 @@
     </head>
     <body>
         <?php
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            $ip = $_SERVER['HTTP_CLIENT_IP'];
-        } else {
-            $ip = $_SERVER['REMOTE_ADDR'];
-        }
-
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
         $f = file_get_contents("http://ipgeobase.ru:7020/geo?ip=" . $ip);
         preg_match("#<country>(.*?)</country>#si", $f, $country);
 
         if ($country[1] == 'HU') {
-            die("QCTF_RaBUJaKuSEpaSiLEvUvecEPYfemUkUpA");
+            echo "QCTF_RaBUJaKuSEpaSiLEvUvecEPYfemUkUpA";
         } else {
-            die("Этот сайт доступен только из определенной страны.");
+            echo "Этот сайт доступен только из определенной страны.";
         }
         ?>
     </body>

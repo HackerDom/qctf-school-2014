@@ -1,7 +1,6 @@
 <?php
 define("PASS", "AKJDVDSKJ295235@#$%^(#HFJSDF");
 define("FLAG", "QCTF_use_==_and_===_correctly");
-header('X-HTTP-Source: http://'.$_SERVER['SERVER_NAME'].'/auth.phps');
 
 if (!isset($_POST['type']) || !isset($_POST['data'])) exit('Wrong post!');
 
