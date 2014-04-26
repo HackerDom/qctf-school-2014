@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <quest series="hardware" id="hardware:300" proto="xmlquest-2.0">
-    <name>База данных</name>
-    <task type="html" lang="en"><div>У нас есть ssh-доступ к серверу vuln.qctf.ru.<br />Логин: binary2<br />Пароль: vulnerability<br />Кажется, в файле flag находится какая-то секретная информация.<br />Ответ начинается с "QCTF_".</div></task>
-    <task type="html" lang="ru"><div>У нас есть ssh-доступ к серверу vuln.qctf.ru.<br />Логин: binary2<br />Пароль: vulnerability<br />Кажется, в файле flag находится какая-то секретная информация.<br />Ответ начинается с "QCTF_".</div></task>
+    <name>Р‘Р°Р·Р° РґР°РЅРЅС‹С…</name>
+    <task type="html" lang="en"><div>РЈ РЅР°СЃ РµСЃС‚СЊ ssh-РґРѕСЃС‚СѓРї Рє СЃРµСЂРІРµСЂСѓ vuln.qctf.ru.<br />Р›РѕРіРёРЅ: binary2<br />РџР°СЂРѕР»СЊ: vulnerability<br />РљР°Р¶РµС‚СЃСЏ, РІ С„Р°Р№Р»Рµ flag РЅР°С…РѕРґРёС‚СЃСЏ РєР°РєР°СЏ-С‚Рѕ СЃРµРєСЂРµС‚РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ.<br />РћС‚РІРµС‚ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ "QCTF_".</div></task>
+    <task type="html" lang="ru"><div>РЈ РЅР°СЃ РµСЃС‚СЊ ssh-РґРѕСЃС‚СѓРї Рє СЃРµСЂРІРµСЂСѓ vuln.qctf.ru.<br />Р›РѕРіРёРЅ: binary2<br />РџР°СЂРѕР»СЊ: vulnerability<br />РљР°Р¶РµС‚СЃСЏ, РІ С„Р°Р№Р»Рµ flag РЅР°С…РѕРґРёС‚СЃСЏ РєР°РєР°СЏ-С‚Рѕ СЃРµРєСЂРµС‚РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ.<br />РћС‚РІРµС‚ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ "QCTF_".</div></task>
     <checker strict="yes">
         <solution case="insensitive">QCTF_ololo!_you_MADE_it!</solution>
     </checker>
