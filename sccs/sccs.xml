@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <quest series="hardware" id="hardware:300" proto="xmlquest-2.0">
-    <name>ADC</name>
+    <name>Контроль версий</name>
     <task type="html" lang="en"><div>Из <a href="static/s.keys.png">многих ключей</a> выберите один верный.<br />Ответ начинается с "QCTF_".</div></task>
     <task type="html" lang="ru"><div>Из <a href="static/s.keys.png">многих ключей</a> выберите один верный.<br />Ответ начинается с "QCTF_".</div></task>
     <checker strict="yes">
