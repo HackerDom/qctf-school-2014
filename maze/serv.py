@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 from flask import Flask
 from hashlib import md5
 from flask import request
