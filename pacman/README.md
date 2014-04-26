@@ -12,6 +12,6 @@
 
 ---
 #### Flag:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`QCTF_661ac1ff7f170ef2d8db9059b211739a`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`QCTF_2bd04f52c5d6037efbf1638bd9efee17`
 
 ---
