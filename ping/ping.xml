@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<quest series="hardware" id="hardware:300" proto="xmlquest-2.0">
+    <name>Ping me</name>
+    <task type="html" lang="en"><div>Прочтите файл на <a href="http://ping.qctf.ru">сервере</a>.<br />Ответ начинается с "QCTF_".</div></task>
+    <task type="html" lang="ru"><div>Прочтите файл на <a href="http://ping.qctf.ru">сервере</a>.<br />Ответ начинается с "QCTF_".</div></task>
+    <checker strict="yes">
+        <solution case="insensitive">QCTF_5amEqyjUfiqiSUTazesiTYxy8isiqyMa</solution>
+    </checker>
+</quest>

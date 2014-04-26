@@ -13,4 +13,4 @@
 
 # Формулировка #
 
-Нам не жалко флагов - вы только попросите. http://only-chrome.qctf.ru
+Нам не жалко флагов - вы только попросите. <a href="http://onlychrome.qctf.ru">http://onlychrome.qctf.ru</a>
