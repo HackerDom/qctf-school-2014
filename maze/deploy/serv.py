@@ -15,7 +15,7 @@ def hello(datastr):
     hash = gethash.hexdigest()
 
     if "Python" in request.headers.get('User-Agent'):
-        return ""
+        return "This is not for your Python ;)"
 
     if not datastr == "57f0eb9a206a640c97ce739791c75ff3":
         return "<a href=" + "".join(hash) + " class=\"design\">Ссылка</a>"
