@@ -11,9 +11,9 @@
         preg_match("#<country>(.*?)</country>#si", $f, $country);
 
         if ($country[1] == 'HU') {
-            die("QCTF_RaBUJaKuSEpaSiLEvUvecEPYfemUkUpA");
+            echo "QCTF_RaBUJaKuSEpaSiLEvUvecEPYfemUkUpA";
         } else {
-            die("Этот сайт доступен только из определенной страны.");
+            echo "Этот сайт доступен только из определенной страны.";
         }
         ?>
     </body>
