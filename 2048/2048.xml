@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<quest series="reverse" id="reverse:500" proto="xmlquest-2.0">
+    <name>2048</name>
+    <task type="html" lang="en"><div>Кажется, мы нашли одну из <a href="static/16384.bat">первых версий</a> игры 2048. Она настолько древняя, что не может затвитить Ваш результат. Да что там! Она вообще в сеть не выходит. Или нет?..<br />Ответ начинается с "QCTF_".</div></task>
+    <task type="html" lang="ru"><div>Кажется, мы нашли одну из <a href="static/16384.bat">первых версий</a> игры 2048. Она настолько древняя, что не может затвитить Ваш результат. Да что там! Она вообще в сеть не выходит. Или нет?..<br />Ответ начинается с "QCTF_".</div></task>
+    <checker strict="yes">
+        <solution case="insensitive">QCTF_a12qv3tjgqtSch0l1f3tjgqtSch0lpd5</solution>
+    </checker>
+</quest>
