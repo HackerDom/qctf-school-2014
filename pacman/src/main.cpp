@@ -72,12 +72,8 @@ int main()
 	HCRYPTPROV hProv;
 	HCRYPTHASH hHash;
 
-	if (!CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT))
-		return 1;
-	if (!CryptCreateHash(hProv, CALG_MD4, 0, 0, &hHash)) {
-		CryptReleaseContext(hProv, 0);
-		return 2;
-	}
+	CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT);
+	CryptCreateHash(hProv, CALG_MD4, 0, 0, &hHash);
 
 	printf("This program will calculate the flag for you. Please wait...\n");
 
@@ -95,13 +91,7 @@ int main()
 				verse2_pos = 0;
 		}
 
-		if (!CryptHashData(hHash, data, 2048, 0)) {
-			free(data);
-
-			CryptDestroyHash(hHash);
-			CryptReleaseContext(hProv, 0);
-			return 3;
-		}
+		CryptHashData(hHash, data, 2048, 0);
 
 		// if (i % 100000 == 0)
 		// 	printf("%d\n", i);
@@ -109,25 +99,13 @@ int main()
 
 	free(data);
 
-	if (!CryptHashData(hHash, (BYTE*)verse3, strlen(verse3), 0)) {
-		CryptDestroyHash(hHash);
-		CryptReleaseContext(hProv, 0);
-		return 3;
-	}
+	CryptHashData(hHash, (BYTE*)verse3, strlen(verse3), 0);
 
 	DWORD hash_len, data_len = sizeof(DWORD);
-	if (!CryptGetHashParam(hHash, HP_HASHSIZE, (BYTE*)&hash_len, &data_len, 0)) {
-		CryptDestroyHash(hHash);
-		CryptReleaseContext(hProv, 0);
-		return 4;
-	}
+	CryptGetHashParam(hHash, HP_HASHSIZE, (BYTE*)&hash_len, &data_len, 0);
 
 	data = (BYTE*)malloc(hash_len);
-	if (!CryptGetHashParam(hHash, HP_HASHVAL, data, &hash_len, 0)) {
-		CryptDestroyHash(hHash);
-		CryptReleaseContext(hProv, 0);
-		return 4;
-	}
+	CryptGetHashParam(hHash, HP_HASHVAL, data, &hash_len, 0);
 
 	printf("\nCongratulation!! The key is: QCTF_");
 	for (DWORD i = 0; i < hash_len; i++)
