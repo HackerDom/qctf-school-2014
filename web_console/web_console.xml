@@ -4,6 +4,6 @@
     <task type="html" lang="en"><div>Нам не жалко флагов — вы только попросите. <a href="http://onlychrome.qctf.ru">http://onlychrome.qctf.ru</a>.<br />Ответ начинается с "QCTF_".</div></task>
     <task type="html" lang="ru"><div>Нам не жалко флагов — вы только попросите. <a href="http://onlychrome.qctf.ru">http://onlychrome.qctf.ru</a>.<br />Ответ начинается с "QCTF_".</div></task>
     <checker strict="yes">
-        <solution case="insensitive">???</solution>
+        <solution case="insensitive">QCTF_6d59978b3fd185fba1f18b49b1666341909d738e</solution>
     </checker>
 </quest>
