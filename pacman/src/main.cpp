@@ -79,7 +79,7 @@ int main()
 		return 2;
 	}
 
-	printf("This program will calculate the flag for you, but you, probably, may have not enough memory.\nAnyway, it will take some time. Relax...\n");
+	printf("This program will calculate the flag for you. Please wait...\n");
 
 	BYTE *data;
 	WORD verse1_pos = 0, verse2_pos = 0;
