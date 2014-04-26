@@ -9,7 +9,7 @@ exec('ping -c 4 '.$IP,$info);
   <title>Ping</title>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script>
-  var ip =((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?);
+  var ip =/^((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)$/i;
   function check(id, reg){
   	var value = $("#" + id).val();
   	if (reg.test(value) ){
