@@ -24,7 +24,7 @@ exec('ping -c 4 '.$IP,$info);
 </head>
 <body>
     <form action="index.php" method="post" id="f1">
-    <p><label for="ip">IP</label><input maxlength="15" type="text" id="IP" name="IP"  onKeyUp="check('IP', reg_login)" onBlur="check('IP', ip)"></p>
+    <p><label for="ip">IP</label><input maxlength="15" type="text" id="IP" name="IP"  onKeyUp="check('IP', ip)" onBlur="check('IP', ip)"></p>
     <p><button id="ping" >Ping</button></p>
         </form>
         <script>
