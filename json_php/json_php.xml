@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<quest series="hardware" id="hardware:300" proto="xmlquest-2.0">
+<quest series="E" id="E:100" proto="xmlquest-2.0">
     <name>Авторизуйся</name>
     <task type="html" lang="en"><div>Просто <a href="http://admin.qctf.ru/">авторизуйтесь</a>.<br />Ответ начинается с "QCTF_".</div></task>
     <task type="html" lang="ru"><div>Просто <a href="http://admin.qctf.ru/">авторизуйтесь</a>.<br />Ответ начинается с "QCTF_".</div></task>

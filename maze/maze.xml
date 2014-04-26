@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<quest series="hardware" id="hardware:300" proto="xmlquest-2.0">
+<quest series="F" id="F:100" proto="xmlquest-2.0">
     <name>Click'n'Win</name>
     <task type="html" lang="en"><div>Приступая к этому заданию, помните, что кучу монотонных действий куда лучше поручить компьютеру.<br /><a href="http://clicknwin.qctf.ru">Начать!</a><br />Ответ начинается с "QCTF_".</div></task>
     <task type="html" lang="ru"><div>Приступая к этому заданию, помните, что кучу монотонных действий куда лучше поручить компьютеру.<br /><a href="http://clicknwin.qctf.ru">Начать!</a><br />Ответ начинается с "QCTF_".</div></task>
