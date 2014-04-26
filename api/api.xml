@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<quest series="reverse" id="reverse:500" proto="xmlquest-2.0">
+    <name>API</name>
+    <task type="html" lang="en"><div>Нами было перехвачено зашифрованное сообщение: "H[0%hLR7*jX5^V]" (без кавычек).<br />Также удалось найти <a href="static/api.exe">программу</a>, при помощи которой был зашифрован этот текст. Найдите, что было зашифровано.<br />Ответ начинается с "qctf".</div></task>
+    <task type="html" lang="ru"><div>Нами было перехвачено зашифрованное сообщение: "H[0%hLR7*jX5^V]" (без кавычек).<br />Также удалось найти <a href="static/api.exe">программу</a>, при помощи которой был зашифрован этот текст. Найдите, что было зашифровано.<br />Ответ начинается с "qctf".</div></task>
+    <checker strict="yes">
+        <solution case="insensitive">qctf-task_owned</solution>
+    </checker>
+</quest>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<quest series="hardware" id="hardware:300" proto="xmlquest-2.0">
+    <name>Click'n'Win</name>
+    <task type="html" lang="en"><div>Приступая к этому заданию, помните, что можно успеть гораздо больше, если часть задач за вас сделает компьютер.<br /><a href="http://clicknwin.qctf.ru/start">Начать!</a><br />Ответ начинается с "QCTF_".</div></task>
+    <task type="html" lang="ru"><div>Приступая к этому заданию, помните, что можно успеть гораздо больше, если часть задач за вас сделает компьютер.<br /><a href="http://clicknwin.qctf.ru/start">Начать!</a><br />Ответ начинается с "QCTF_".</div></task>
+    <checker strict="yes">
+        <solution case="insensitive">QCTF_2vlSKFfdYdXWojf</solution>
+    </checker>
+</quest>
