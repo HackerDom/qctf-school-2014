@@ -7,10 +7,10 @@ from sys import stdout
 
 data = "start"
 counter = 0
+started = time()
 while True:
     stdout.write("Round " + str(counter) + "\r")
     counter += 1
-    started = time()
     handle = request.Request("http://clicknwin.qctf.ru/" + data, headers = {"user-agent" : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36"})
     handle = request.urlopen(handle)
     rowdata = handle.read().decode('utf-8', errors='ignore')
