@@ -23,7 +23,8 @@ int main() {
 	"- open me in IDA\n"
 	"- look for vulnerabilities. I'm sure that the programmer used unsafe functions\n"
 	"- use it to run a function print_flag (as you can see in IDA, print_flag at %p)\n"
-	"- if you want, you can play with me in gdb\n", name, print_flag);
+	"- if you want, you can play with me in gdb\n"
+	"- you can create any files in /tmp (but ls is forbidden)\n", name, print_flag);
 	fflush(stdout);
 
 	return 0;
